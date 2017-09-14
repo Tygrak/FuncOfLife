@@ -1,6 +1,6 @@
 ﻿open System
 
-let mutable a = Array2D.init 14 25 (fun x y -> (0))
+let mutable a = Array2D.init 50 50 (fun x y -> (0))
 
 let randomFillArray arr =
     let rand = System.Random()
@@ -28,7 +28,7 @@ let nextGeneration arr =
     |> (fun (arr1:int[,]) (arr2:int[,]) -> Array2D.init (Array2D.length1 arr1) (Array2D.length2 arr1) (fun x y -> (squareNextGeneration arr2.[x,y] arr1.[x,y]))) arr
 
 let neatPrintGame arr =
-    printf "\n"
+    Console.Clear ()
     for i = 0 to (Array2D.length1 arr)-1 do
         for j = 0 to (Array2D.length2 arr)-1 do
             match arr.[i, j] with
@@ -37,9 +37,13 @@ let neatPrintGame arr =
         printf "\n"
 [<EntryPoint>]
 let main argv =
+    Mandel.mandelbrot 60 60 100 Numerics.Complex.Zero 5.0 |> Mandel.neatPrintMandel
+    (*
     a <- randomFillArray a
     for i = 0 to 10000 do
         a <- nextGeneration a
         neatPrintGame a
         Threading.Thread.Sleep(500)
+    *)
+    
     0
