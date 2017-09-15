@@ -35,15 +35,16 @@ let neatPrintGame arr =
             | 0 -> printf " "
             | _ -> printf "▓"
         printf "\n"
+        
 [<EntryPoint>]
 let main argv =
-    Mandel.mandelbrot 60 60 100 Numerics.Complex.Zero 5.0 |> Mandel.neatPrintMandel
-    (*
+    //Mandel.mandelbrot 60 60 1000 (Numerics.Complex(-0.775, 0.0)) 2.5 |> Mandel.neatPrintMandelbrot
+    
     a <- randomFillArray a
     for i = 0 to 10000 do
         a <- nextGeneration a
         neatPrintGame a
         Threading.Thread.Sleep(500)
-    *)
+    
     
     0
